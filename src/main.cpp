@@ -1,6 +1,7 @@
 #include <core/Clock.hpp>
 #include <core/Random.hpp>
 #include <book/Order.hpp>
+#include <book/OrderId.hpp>
 #include <iostream>
 
 int main() {
@@ -11,8 +12,8 @@ int main() {
     core::Random rng(123);
     std::cout << "Uniform = " << rng.uniform() << std::endl;
 
-
-    book::Order o(1, core::Side::Buy, 100, 4, 0);
+    uint64_t id1 = book::OrderId::next();
+    book::Order o(id1, core::Side::Buy, 100, 4, 0);
 
     std::cout << o.str() << std::endl;
 }

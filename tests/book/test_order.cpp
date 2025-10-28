@@ -6,17 +6,14 @@ TEST_CASE("Order basic construction", "[Order]") {
     using namespace core;
     using namespace book;
 
-    // --- GIVEN ---
     const Order::Id id = 42;
     const Side side = Side::Buy;
     const Price price = 100.25;
     const Quantity qty = 10;
     const TimeNs ts = 123456789ULL;
 
-    // --- WHEN ---
     book::Order o(id, side, price, qty, ts);
 
-    // --- THEN ---
     REQUIRE(o.id() == id);
     REQUIRE(o.side() == side);
     REQUIRE(o.price() == Catch::Approx(price));
